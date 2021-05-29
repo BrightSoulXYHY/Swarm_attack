@@ -1,0 +1,25 @@
+<launch>
+   <!-- <arg name="ip" default="192.168.199.140" />
+   <arg name="mav_x" default="0" />
+   <arg name="mav_y" default="0" />
+   <arg name="mav_z" default="0" /> -->
+   <!-- multi drone bias -->
+   <!-- <node name="move_obj_node" pkg="attack" type="obj_move_test.py" output="screen"/> -->
+   <node name="move_obj_node" pkg="attack" type="obj_move_test.py" output="screen"/>
+   <node name="is_attack_node" pkg="attack" type="is_attrack.py" output="screen"/>
+   <!-- <include file="$(find decision)/launch/mutli_drone.launch"> -->
+   <!-- </include> -->
+   <!-- multi drone attack -->
+   <include file="$(find attack)/launch/attack.launch">
+        <arg name="drone_id" value="1"/>
+        <arg name="drone_num" value="3"/>
+   </include>
+   <include file="$(find attack)/launch/attack.launch">
+        <arg name="drone_id" value="2"/>
+        <arg name="drone_num" value="3"/>
+   </include>
+   <include file="$(find attack)/launch/attack.launch">
+        <arg name="drone_id" value="3"/>
+        <arg name="drone_num" value="3"/>
+   </include>
+</launch>

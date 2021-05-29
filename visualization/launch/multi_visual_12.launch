@@ -1,0 +1,63 @@
+<launch>
+   <include file="$(find visualization)/launch/multi_visual_unit.launch">
+        <arg name="drone_id" value="1"/>
+        <arg name="type" value="207"/>
+   </include>
+   <include file="$(find visualization)/launch/multi_visual_unit.launch">
+        <arg name="drone_id" value="2"/>
+        <arg name="type" value="207"/>
+   </include>
+   <include file="$(find visualization)/launch/multi_visual_unit.launch">
+        <arg name="drone_id" value="3"/>
+        <arg name="type" value="207"/>
+   </include>
+   <include file="$(find visualization)/launch/multi_visual_unit.launch">
+        <arg name="drone_id" value="4"/>
+        <arg name="type" value="207"/>
+   </include>
+   <include file="$(find visualization)/launch/multi_visual_unit.launch">
+        <arg name="drone_id" value="5"/>
+        <arg name="type" value="207"/>
+   </include>
+   <include file="$(find visualization)/launch/multi_visual_unit.launch">
+        <arg name="drone_id" value="6"/>
+        <arg name="type" value="207"/>
+   </include>
+
+   <include file="$(find visualization)/launch/multi_visual_unit.launch">
+        <arg name="drone_id" value="7"/>
+        <arg name="type" value="207"/>
+   </include>
+   <include file="$(find visualization)/launch/multi_visual_unit.launch">
+        <arg name="drone_id" value="8"/>
+        <arg name="type" value="207"/>
+   </include>
+   <include file="$(find visualization)/launch/multi_visual_unit.launch">
+        <arg name="drone_id" value="9"/>
+        <arg name="type" value="207"/>
+   </include>
+   <include file="$(find visualization)/launch/multi_visual_unit.launch">
+        <arg name="drone_id" value="10"/>
+        <arg name="type" value="207"/>
+   </include>
+   <include file="$(find visualization)/launch/multi_visual_unit.launch">
+        <arg name="drone_id" value="11"/>
+        <arg name="type" value="207"/>
+   </include>
+   <include file="$(find visualization)/launch/multi_visual_unit.launch">
+        <arg name="drone_id" value="12"/>
+        <arg name="type" value="207"/>
+   </include>
+
+
+   <arg name="ip" default="192.168.0.1" />
+   <arg name="mav_x" default="-188" />
+   <arg name="mav_y" default="-192" />
+   <arg name="mav_z" default="0" />
+   <include file="$(find visualization)/launch/object_API.launch">
+        <arg name="ip" value="$(arg ip)"/>
+        <arg name="mav_x" value="$(arg mav_x)"/>
+        <arg name="mav_y" value="$(arg mav_y)" />
+        <arg name="mav_z" value="$(arg mav_z)" />
+   </include>
+</launch>

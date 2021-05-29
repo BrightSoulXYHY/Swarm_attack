@@ -1,0 +1,21 @@
+<package>
+  <name>rflysimindoorcontroller_r2018b_n12_v9</name>
+  <version>1.0.0</version>
+  <description>
+  This package is generated from RflysimIndoorController_r2018b_N12_V9 Simulink model.
+  </description>
+  <maintainer email="buaa_gaoyan@buaa.edu.cn">GaoYan</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>swarm_msgs</build_depend>
+
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>swarm_msgs</run_depend>
+</package>

@@ -1,0 +1,2 @@
+geometry_msgs/Point32 left_front_bottom
+geometry_msgs/Point32 right_back_top

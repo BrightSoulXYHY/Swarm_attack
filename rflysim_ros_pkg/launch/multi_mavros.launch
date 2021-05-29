@@ -1,0 +1,37 @@
+<launch>
+   <!-- <arg name="IP" value="192.168.199.140" /> -->
+   <arg name="IP" value="192.168.0.1" />
+   <group ns="drone_1">
+      <arg name="ID" value="1"/>
+      <arg name="fcu_url" default="udp://:20101@$(arg IP):20100"/>
+      <!-- MAVROS -->
+      <include file="$(find mavros)/launch/px4.launch">
+         <arg name="fcu_url" value="$(arg fcu_url)"/>
+         <arg name="gcs_url" value=""/>
+         <arg name="tgt_system" value="$(arg ID)"/>
+         <arg name="tgt_component" value="1"/>
+      </include>
+   </group>
+   <group ns="drone_2">
+      <arg name="ID" value="2"/>
+      <arg name="fcu_url" default="udp://:20103@$(arg IP):20102"/>
+      <!-- MAVROS -->
+      <include file="$(find mavros)/launch/px4.launch">
+         <arg name="fcu_url" value="$(arg fcu_url)"/>
+         <arg name="gcs_url" value=""/>
+         <arg name="tgt_system" value="$(arg ID)"/>
+         <arg name="tgt_component" value="1"/>
+      </include>
+   </group>
+   <group ns="drone_3">
+      <arg name="ID" value="3"/>
+      <arg name="fcu_url" default="udp://:20105@$(arg IP):20104"/>
+      <!-- MAVROS -->
+      <include file="$(find mavros)/launch/px4.launch">
+         <arg name="fcu_url" value="$(arg fcu_url)"/>
+         <arg name="gcs_url" value=""/>
+         <arg name="tgt_system" value="$(arg ID)"/>
+         <arg name="tgt_component" value="1"/>
+      </include>
+   </group>
+</launch>

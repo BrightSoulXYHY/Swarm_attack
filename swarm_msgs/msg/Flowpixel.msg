@@ -1,0 +1,2 @@
+geometry_msgs/Point32 start_point
+geometry_msgs/Point32 direction

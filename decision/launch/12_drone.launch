@@ -1,0 +1,100 @@
+<launch>
+   <!-- 12 drone bias  -->
+   <include file="$(find decision)/launch/bias.launch">
+        <arg name="drone_id" value="1"/>
+        <arg name="drone_num" value="12"/>
+   </include>
+   <include file="$(find decision)/launch/bias.launch">
+        <arg name="drone_id" value="2"/>
+        <arg name="drone_num" value="12"/>
+   </include>
+   <include file="$(find decision)/launch/bias.launch">
+        <arg name="drone_id" value="3"/>
+        <arg name="drone_num" value="12"/>
+   </include>
+   <include file="$(find decision)/launch/bias.launch">
+        <arg name="drone_id" value="4"/>
+        <arg name="drone_num" value="12"/>
+   </include>
+   <include file="$(find decision)/launch/bias.launch">
+        <arg name="drone_id" value="5"/>
+        <arg name="drone_num" value="12"/>
+   </include>
+   <include file="$(find decision)/launch/bias.launch">
+        <arg name="drone_id" value="6"/>
+        <arg name="drone_num" value="12"/>
+   </include>
+   <include file="$(find decision)/launch/bias.launch">
+        <arg name="drone_id" value="7"/>
+        <arg name="drone_num" value="12"/>
+   </include>
+   <include file="$(find decision)/launch/bias.launch">
+        <arg name="drone_id" value="8"/>
+        <arg name="drone_num" value="12"/>
+   </include>
+   <include file="$(find decision)/launch/bias.launch">
+        <arg name="drone_id" value="9"/>
+        <arg name="drone_num" value="12"/>
+   </include>
+   <include file="$(find decision)/launch/bias.launch">
+        <arg name="drone_id" value="10"/>
+        <arg name="drone_num" value="12"/>
+   </include>
+   <include file="$(find decision)/launch/bias.launch">
+        <arg name="drone_id" value="11"/>
+        <arg name="drone_num" value="12"/>
+   </include>
+   <include file="$(find decision)/launch/bias.launch">
+        <arg name="drone_id" value="12"/>
+        <arg name="drone_num" value="12"/>
+   </include>
+   <!-- 12 drone control  -->
+   <include file="$(find decision)/launch/drone.launch">
+        <arg name="drone_id" value="1"/>
+        <arg name="drone_num" value="12"/>
+   </include>
+   <include file="$(find decision)/launch/drone.launch">
+        <arg name="drone_id" value="2"/>
+        <arg name="drone_num" value="12"/>
+   </include>
+   <include file="$(find decision)/launch/drone.launch">
+        <arg name="drone_id" value="3"/>
+        <arg name="drone_num" value="12"/>
+   </include>
+   <include file="$(find decision)/launch/drone.launch">
+        <arg name="drone_id" value="4"/>
+        <arg name="drone_num" value="12"/>
+   </include>
+   <include file="$(find decision)/launch/drone.launch">
+        <arg name="drone_id" value="5"/>
+        <arg name="drone_num" value="12"/>
+   </include>
+   <include file="$(find decision)/launch/drone.launch">
+        <arg name="drone_id" value="6"/>
+        <arg name="drone_num" value="12"/>
+   </include>
+   <include file="$(find decision)/launch/drone.launch">
+        <arg name="drone_id" value="7"/>
+        <arg name="drone_num" value="12"/>
+   </include>
+   <include file="$(find decision)/launch/drone.launch">
+        <arg name="drone_id" value="8"/>
+        <arg name="drone_num" value="12"/>
+   </include>
+   <include file="$(find decision)/launch/drone.launch">
+        <arg name="drone_id" value="9"/>
+        <arg name="drone_num" value="12"/>
+   </include>
+   <include file="$(find decision)/launch/drone.launch">
+        <arg name="drone_id" value="10"/>
+        <arg name="drone_num" value="12"/>
+   </include>
+   <include file="$(find decision)/launch/drone.launch">
+        <arg name="drone_id" value="11"/>
+        <arg name="drone_num" value="12"/>
+   </include>
+   <include file="$(find decision)/launch/drone.launch">
+        <arg name="drone_id" value="12"/>
+        <arg name="drone_num" value="12"/>
+   </include>
+</launch>

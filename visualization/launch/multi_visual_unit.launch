@@ -1,0 +1,8 @@
+<launch>
+    <arg name="drone_id" default="1" />
+    <arg name="type" default="27" />
+    <node name="pipeline_vision_$(arg drone_id)" pkg="visualization" type="visual_pipe_swarm.py" output="screen">
+        <param name="drone_id" value="$(arg drone_id)" />
+        <param name="type" value="$(arg type)" />
+    </node>
+</launch>

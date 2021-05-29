@@ -1,0 +1,19 @@
+<launch>
+    <arg name="drone_id" default="1" />
+    <arg name="type" default="207" />
+    <include file="$(find visualization)/launch/multi_visual_unit.launch">
+        <arg name="drone_id" value="$(arg drone_id)"/>
+        <arg name="type" value="$(arg type)"/>
+    </include>
+
+    <arg name="ip" default="192.168.111.5" />
+    <arg name="mav_x" default="-188" />
+    <arg name="mav_y" default="-192" />
+    <arg name="mav_z" default="0" />
+    <include file="$(find visualization)/launch/object_API.launch">
+        <arg name="ip" value="$(arg ip)"/>
+        <arg name="mav_x" value="$(arg mav_x)"/>
+        <arg name="mav_y" value="$(arg mav_y)" />
+        <arg name="mav_z" value="$(arg mav_z)" />
+    </include>
+</launch>

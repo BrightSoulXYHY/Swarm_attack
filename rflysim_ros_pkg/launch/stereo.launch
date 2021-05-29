@@ -1,0 +1,10 @@
+<launch>
+   <include file="$(find rflysim_ros_pkg)/launch/cameras.launch">
+        <arg name="camera_id" value="left"/>
+        <arg name="port" value="9999"/>
+   </include>
+   <include file="$(find rflysim_ros_pkg)/launch/cameras.launch">
+        <arg name="camera_id" value="right"/>
+        <arg name="port" value="10000"/>
+   </include>
+</launch>

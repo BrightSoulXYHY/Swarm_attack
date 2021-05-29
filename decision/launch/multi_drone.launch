@@ -1,0 +1,26 @@
+<launch>
+   <include file="$(find decision)/launch/bias.launch">
+        <arg name="drone_id" value="1"/>
+        <arg name="drone_num" value="3"/>
+   </include>
+   <include file="$(find decision)/launch/bias.launch">
+        <arg name="drone_id" value="2"/>
+        <arg name="drone_num" value="3"/>
+   </include>
+   <include file="$(find decision)/launch/bias.launch">
+        <arg name="drone_id" value="3"/>
+        <arg name="drone_num" value="3"/>
+   </include>
+   <include file="$(find decision)/launch/drone.launch">
+        <arg name="drone_id" value="1"/>
+        <arg name="drone_num" value="3"/>
+   </include>
+   <include file="$(find decision)/launch/drone.launch">
+        <arg name="drone_id" value="2"/>
+        <arg name="drone_num" value="3"/>
+   </include>
+   <include file="$(find decision)/launch/drone.launch">
+        <arg name="drone_id" value="3"/>
+        <arg name="drone_num" value="3"/>
+   </include>
+</launch>
