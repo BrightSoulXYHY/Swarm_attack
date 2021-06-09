@@ -12,7 +12,7 @@ id = 0
 
 
 def draw_unit(id, start, end):
-    global obj_pub
+    global 
     obj_msg = Obj()
     obj_msg.id = id
     obj_msg.type = 27
@@ -23,7 +23,7 @@ def draw_unit(id, start, end):
     obj_msg.size.x = np.linalg.norm([end.y - start.y, end.x - start.x])
     obj_msg.size.y = 0.1
     obj_msg.size.z = 2
-    obj_pub.publish(obj_msg)
+    .publish(obj_msg)
     print(obj_msg)
 
 
@@ -47,6 +47,6 @@ def pipeline_cb(msg):
 
 if __name__ == '__main__':
     rospy.init_node('pipeline_vision', anonymous=True)
-    obj_pub = rospy.Publisher("ue4_ros/obj", Obj, queue_size=10)
+     = rospy.Publisher("ue4_ros/obj", Obj, queue_size=10)
     rospy.Subscriber("decision_info", Pipeline, pipeline_cb)
     rospy.spin()

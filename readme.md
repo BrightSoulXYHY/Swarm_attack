@@ -77,129 +77,43 @@ source /home/USER_NAME/Swarm_ws/devel/setup.bash
 
 
 ## 使用
-1. 在Windows电脑下运行`oldfactory_SITL.bat`或者`oldfactory_HITL.bat`。加入小球、传图需要运行`client_ue4_broadcast.py`。其中传图需要把`client_ue4_broadcast.py`内注释打开，对电脑性能要求高，待测试。
-```
-若Linux环境为VMware虚拟机，需要在Windows电脑下将需要将oldfactory_SITL.bat第39行修改为
-SET IS_BROADCAST=IP_Virtual
-其中IP_Virtual为虚拟机ip地址
-虚拟机网络适配器需采用 桥接模式（自动），选中 复制物理网络连接状态
-```
+### Win端
 
-2. 在Linux下运行。接收各种需要的消息
-```
-# 终端1。其中IP为Windows电脑的IP地址
-roslaunch mavros px4.launch fcu_url:="udp://:20101@IP:20100"
-
-# 终端2[可选]。运行后得到图像话题，可以后续操作
-roslaunch rflysim_ros_pkg cameras.launch
-```
-
-3. 打开MATLAB和Simulink，开始Simulink仿真。可以在Windows或Linux电脑，注意需要自行判断ROSCORE的IP。
-```
-rosinit("IP_Virtual")
-```
-4. 在QgroundControl中手动解锁、起飞
-
-5. 执行任务
-```
-# 终端3。注意需要为offboard.py添加可执行权限
-rosrun decision offboard.py
-```
-
-6. 聚焦第5步弹出窗口，按a键进入offboard模式，执行第一个航路点。
-
-
-
-
-## 开发
-```
-# 开发前获取最新版本
-git pull
-# 可选，更新子模块
-git submodule update
-# 开发过程中，可以回到~/Swarm_ws/src目录下，提交代码 
-git add .
-git commit -m "say something"
-# 开发完成后，上传代码
-git push
-```
-## 多机
-1.更新Rflyim配件
-```
-在windows电脑下，把rflysim-config文件夹下的“SITL_swam_oldfactor.bat”和“PX4MavCtrlV6.py”
-文件拷贝到PX4PSP对应路徑下，“SITL_swam_oldfactor.bat”为多机软件再换启动脚本（场景为废旧工厂），
-在windows电脑下双击，然后输入集群飞机数量；“PX4MavCtrlV6.py”为Rflysim最新Python接口，
-“sendUE4PosScale(self,copterID,vehicleType,MotorRPMSMean,PosE,AngEuler,Scale=[1,1,1],windowID=-1)”
-可改变添加物体（例如小球、油桶）尺寸大小，其他接口与原版相同。
-注：使用上诉接口需更新最新版的Rflysim3D软件和Copterim软件
-```
-
-2.启动多机Mavros
-```
-#终端1：启动多机Mavros的launch文件
-roslaunch rflysim_ros_pkg multi_mavros.launch
-现象：
-之前的/mavros......开头的节点名都会变成/drone_i/mavros......开头，因此订阅的消息都要做相应修改
-修改项：
-<arg name="IP" value="192.168.1.167" />中的“192.168.1.167”
-需要改成对应window电脑的IP地址
-```
-```
-注意：
-如需添加更多架飞机，在launch文件中依次添加下列代码，其中“<arg name="ID" value="i"/>”为添加的ID编号，
-这一项不能重名，“<arg name="fcu_url" default="udp://:20101@$(arg IP):20100"/>”中的
-20101和20100不同飞机端口号，也不能重复
-
-   <group ns="drone_i">
-      <arg name="ID" value="i"/>
-      <arg name="fcu_url" default="udp://:20101@192.168.199.140:20100"/>
-      <!-- MAVROS -->
-      <include file="$(find mavros)/launch/px4.launch">
-         <arg name="fcu_url" value="$(arg fcu_url)"/>
-         <arg name="gcs_url" value=""/>
-         <arg name="tgt_system" value="$(arg ID)"/>
-         <arg name="tgt_component" value="1"/>
-      </include>
-   </group>
-```
-
-3.终端2：启动坐标系系校准程序
-```
-roslaunch decision multi_drone.launch
-现象：
-可订阅“/drone_i/mavros/local_position/pose_cor”节点消息，drone_i为相对应的飞机编号，
-此节点为矫正后（统一坐标系后的local_position坐标），为Point32类型。
-修改：
-如果添加更多项飞机，则需要修改所有的下列项
-1）“<arg name="drone_id" value="1"/>”中的“value="1"”以此编号，与步骤2中的飞机编号相对应
-2）“<arg name="drone_num" value="3"/>”中的“value="3"”要改成添加的飞机数量，例如飞机数量时8，则需修改为8
-```
+将`_Swarm_Attack`目录下的东西拷贝到Rflysim主机上
 
 ```
-注意：
-如果不需要飞机自动飞行，屏蔽launch文件中的这些项（目前一共三项），这些启动的是测试时所用的飞机控制程序
-   <include file="$(find decision)/launch/drone.launch">
-        <arg name="drone_id" value="1"/>
-        <arg name="drone_num" value="3"/>
-   </include>
+_mav_reboot.py					让无人机重启的脚本，pyserial需要在3.5以上
 
-保留下列项即可：
-   <include file="$(find decision)/launch/bias.launch">
-        <arg name="drone_id" value="1"/>
-        <arg name="drone_num" value="3"/>
-   </include>
+硬件在环的仿真脚本，只是修改了飞机数目啥的
+拷贝到另外的飞机上要修改start_index
+oldfactory_HITL.bat
+oldfactory_HITL_NUCx6.bat
+oldfactory_HITL_NXx2.bat
+
+软件在环的一些脚本
+oldfactory_SITL.bat
+oldfactory_SITL_bs.bat
+SITL_swam_oldfactor.bat
+
+
+Rflysim的库，大部分是通过UDP封包发送，可以自己搞
+PX4MavCtrlV6.py
+RflyVisionAPI.py
+ScreenCapApiV4.py
+
+参考用的脚本
+client_ue4_broadcast.py
+Python38Run.bat
 ```
 
-## 一键启动
-1.在windows电脑下启动.bat文件
+然后在`_Swarm_Attack_bs`下面主要是自己写的一些脚本
 
-2.Linux电脑下启动
 ```
-# GitHub最新版本，第一次使用时先输入下列指令：
-roscd main/shell/
-chmod +x 12_drone.sh
+multi_img_client.py				设置窗口然后向不同的硬件发送图片
+multi_img_client_NX.py
 
-# 之后启动只需运行一个终端，依次运行如下指令：
-roscd main/shell/
-./12_drone.sh
+基本的API
+RflyVisionAPI2_bs.py
+ScreenCapApiV4_bs.py
 ```
+

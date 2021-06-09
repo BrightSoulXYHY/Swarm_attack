@@ -3,7 +3,7 @@
     <arg name="drone_num" default="6"/>
 
     
-    <node pkg="decision" type="rflysimindoorcontroller_r2018b_n12_v9_node" name="rflysimindoorcontroller_r2018b_n12_v9_node" output="screen">
+    <node pkg="rflysimindoorcontroller_r2018b_n12_v9" type="rflysimindoorcontroller_r2018b_n12_v9_node" name="rflysimindoorcontroller_r2018b_n12_v9_node" output="screen">
         <remap from="/drone_$(arg drone_id)/mavros/setpoint_velocity/cmd_vel"
             to="/mavros/setpoint_velocity/cmd_vel"
         />

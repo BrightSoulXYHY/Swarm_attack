@@ -48,7 +48,7 @@ def getHwndInfo(hWnd):
     saveBitMap = win32ui.CreateBitmap()
     saveBitMap.CreateCompatibleBitmap(mfcDC, width, height)
 
-    title = win32gui.GetWindowText(hWnd)
+    title = win32ui.GetWindowText(hWnd)
 
     # return image info.
     info = WinInfo(hWnd, width, height, saveDC, saveBitMap, mfcDC, hWndDC, title)

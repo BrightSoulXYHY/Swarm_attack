@@ -126,9 +126,15 @@ goto loopSqrt
 
 
 REM UE4Path
-tasklist|find /i "RflySim3D.exe" || start %PSP_PATH%\RflySim3D\RflySim3D.exe
+rem tasklist|find /i "RflySim3D.exe" || start %PSP_PATH%\RflySim3D\RflySim3D.exe
+rem start %PSP_PATH%\RflySim3D\RflySim3D.exe
+rem choice /t 5 /d y /n >nul
+
 start %PSP_PATH%\RflySim3D\RflySim3D.exe
 choice /t 5 /d y /n >nul
+
+
+
 
 
 tasklist|find /i "CopterSim.exe" && taskkill /f /im "CopterSim.exe"
@@ -160,6 +166,9 @@ if not "%string%"=="" goto split1
 REM QGCPath
 rem tasklist|find /i "QGroundControl.exe" || start %PSP_PATH%\QGroundControl\QGroundControl.exe
 rem ECHO Start QGroundControl
+
+
+start %PSP_PATH%\Python38\python.exe %PSP_PATH%\RflySimAPIs\_Swarm_Attack\_add_obj.py
 
 pause
 

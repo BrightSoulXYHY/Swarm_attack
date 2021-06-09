@@ -4,8 +4,10 @@ REM The text start with 'REM' is annotation, the following options are correspon
 
 REM Start index of vehicle number (should larger than 0)
 REM This option is useful for simulation with multi-computers
-SET /a START_INDEX=1
 
+REM for multi attack change index
+SET /a START_INDEX=1
+SET /A TOTOAL_COPTER=2
 
 REM Set the start UDP port for SIMULINK/OFFBOARD API
 REM This option should not be modified for swarm simulation
@@ -101,7 +103,7 @@ set /a VehicleNum=0
     )
     set /a VehicleNum = VehicleNum +1
 if not "%string%"=="" goto split
-REM cho total com number is %VehicleNum%
+echo total com number is %VehicleNum%
 
 SET /A VehicleTotalNum=%VehicleNum% + %START_INDEX% - 1
 if not defined TOTOAL_COPTER (
@@ -124,9 +126,15 @@ goto loopSqrt
 
 
 REM UE4Path
-tasklist|find /i "RflySim3D.exe" || start %PSP_PATH%\RflySim3D\RflySim3D.exe
-start %PSP_PATH%\RflySim3D\RflySim3D.exe
-choice /t 5 /d y /n >nul
+rem tasklist|find /i "RflySim3D.exe" || start %PSP_PATH%\RflySim3D\RflySim3D.exe
+rem start %PSP_PATH%\RflySim3D\RflySim3D.exe
+rem choice /t 5 /d y /n >nul
+
+
+rem start %PSP_PATH%\RflySim3D\RflySim3D.exe
+
+
+
 
 
 tasklist|find /i "CopterSim.exe" && taskkill /f /im "CopterSim.exe"
@@ -147,8 +155,11 @@ SET string=%ComNum%
     )
     set /a PosXX=((%cntr%-1) / %sqrtNum%)*%VEHICLE_INTERVAL% + %ORIGIN_POS_X%
     set /a PosYY=((%cntr%-1) %% %sqrtNum%)*%VEHICLE_INTERVAL% + %ORIGIN_POS_Y%
+    start %PSP_PATH%\RflySim3D\RflySim3D.exe
+    choice /t 1 /d y /n >nul
     REM echo start CopterSim
     start CopterSim.exe 1 %cntr% %portNum% %DLLModel% %SimMode% %UE4_MAP% %IS_BROADCAST% %PosXX% %PosYY% %ORIGIN_YAW% %subStr% %UDPSIMMODE%
+    
     choice /t 1 /d y /n >nul
     set /a cntr=%cntr%+1
     set /a portNum = %portNum% +2
@@ -156,9 +167,14 @@ SET string=%ComNum%
 if not "%string%"=="" goto split1
 
 REM QGCPath
-tasklist|find /i "QGroundControl.exe" || start %PSP_PATH%\QGroundControl\QGroundControl.exe
-ECHO Start QGroundControl
+rem tasklist|find /i "QGroundControl.exe" || start %PSP_PATH%\QGroundControl\QGroundControl.exe
+rem ECHO Start QGroundControl
+choice /t 10 /d y /n >nul
+start cmd /c "%PSP_PATH%\Python38\python.exe %PSP_PATH%\RflySimAPIs\_Swarm_Attack\_add_obj.py"
+choice /t 1 /d y /n >nul
+start cmd /c "%PSP_PATH%\Python38\python.exe %PSP_PATH%\RflySimAPIs\_Swarm_Attack\img_client_NXx2.py"
 
+echo run python done
 pause
 
 REM kill all applications when press a key
