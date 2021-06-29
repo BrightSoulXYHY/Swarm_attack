@@ -130,7 +130,7 @@ goto loopBegin
 
 REM client_grass
 rem start cmd /c "%PSP_PATH%\Python38\python.exe %PSP_PATH%\RflySimAPIs\SLAM\vins_client.py %IS_BROADCAST% | tee %PSP_PATH%\RflySimAPIs\SLAM\pylog.txt"
-start cmd /c "%PSP_PATH%\Python38\python.exe %PSP_PATH%\RflySimAPIs\SLAM\vins_client.py %IS_BROADCAST%"
+REM start cmd /c "%PSP_PATH%\Python38\python.exe %PSP_PATH%\RflySimAPIs\SLAM\vins_client.py %IS_BROADCAST%"
 
 REM Set ToolChainType 1:Win10WSL 3:Cygwin
 SET /a ToolChainType=1
