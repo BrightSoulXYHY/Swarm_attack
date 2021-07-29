@@ -24,3 +24,5 @@ PosE,AngEuler = [-177,0,-2],[0,0,math.pi/2]
 Scale=[.1,.1,.1]
 buf = struct.pack("3i10f",1234567890,copterID,vehicleType,MotorRPMSMean,*PosE,*AngEuler,*Scale)
 send(buf)
+
+

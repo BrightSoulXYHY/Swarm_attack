@@ -1,25 +1,21 @@
 # -*- coding: utf-8 -*-
-import sys
-import socket
-import cv2
+# import required libraries
 import numpy as np
-import struct
-import sys
-import os
-import win32gui, win32ui, win32con, win32api
-from ctypes import windll
+import cv2
 import time
 import threading
-import math
 
-# 同目录下的文件
-import RflyVisionAPI2_bs as RflyVisionAPI2
-import ScreenCapApiV4_bs as sca
+# import RflySim APIs
+import PX4MavCtrlV4 as PX4MavCtrl
+import ScreenCapApiV4 as sca
 
+'''
+新版本的vision多了个排序
+添加一个窗口向对应的NX发送指令
+截取窗口通过opencv查看
+'''
 
-# sending image thread function
-def img_send_thrd(imginfo,mav):
-    print("Satrt Pub Img")
+def show_img(imginfo,wd_name):
     lastTime = time.time()
     while True:
         lastTime = lastTime + 1/30.0
@@ -28,43 +24,39 @@ def img_send_thrd(imginfo,mav):
             time.sleep(sleepTime)
         else:
             lastTime = time.time()
-        #以下代码以30Hz运行
-        img=sca.getCVImg(imginfo)
-        mav.sendImgUDP(img)
+        img = sca.getCVImg(imginfo)
+        cv2.imshow(wd_name, img)
+        cv2.waitKey(1)
+
+
+
+
+
 
 if __name__ == '__main__':
-    wdID = 0
-    width,height = 640,480
-    client_ip = "127.0.0.1"
-    if len(sys.argv)>1:
-        client_ip = sys.argv[1]
+    mav = PX4MavCtrl.PX4MavCtrler()
+    width,height = 1280,720
 
-
-
-    print(f"Connect to {client_ip}")
-    mav = RflyVisionAPI2.RflyVisionAPI(client_ip,9999)
-
-
-    mav.sendUE4Cmd(b'RflyChangeViewKeyCmd V 1',0)
-    time.sleep(0.5)
-    mav.sendUE4Cmd(b'RflyCameraPosAng 0.3 0 0 0 0 0',0) 
-    time.sleep(0.5)
- 
-
-    # Get handles of all UE4/RflySim3D windows
     window_hwnds = sca.getWndHandls()
 
-    mav.sendUE4Cmd(f'r.setres {width}x{height}w'.encode(),0)    
+    wd_num = len(window_hwnds)
+
+
+    for i in range(wd_num):
+        mav.sendUE4Cmd(b'RflyChangeViewKeyCmd V 1',i)
+        time.sleep(0.5)
+        mav.sendUE4Cmd(f'r.setres {width}x{height}w'.encode(),i)    
+        time.sleep(0.5)
     time.sleep(2)    
 
 
-    for hwd in window_hwnds:
-        info = sca.getHwndInfo(hwd)
-        if int(info.title.split("-")[-1]) == wdID:
-            ImgInfo = info
-            break
+    # ImgInfoList = []
 
-    t_recimg1 = threading.Thread(target=img_send_thrd, args=(ImgInfo,mav,))
-    t_recimg1.start()
+    
+
+    for wd_id,hwd in enumerate(window_hwnds):
+        ImgInfo = sca.getHwndInfo(hwd)
+
+        threading.Thread(target=show_img, args=(ImgInfo,f"mav-{wd_id}",)).start()
 
     print('Start Transfer Img')

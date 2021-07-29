@@ -43,10 +43,10 @@ if __name__ == '__main__':
 
         infoL.append({"com":i.name,"sys_id":the_connection.target_system})
 
-
+    infoL.sort(key=lambda x:x["sys_id"])
     print("all ports reboot successful, wait 5s to restart")
     print("---"*10)
 
     for i in infoL:
         print("{sys_id} at {com}".format(**i))
-    time.sleep(5)
+    time.sleep(10)
