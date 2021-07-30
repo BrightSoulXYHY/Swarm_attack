@@ -1,5 +1,47 @@
 # Swarm_Attack
 
+本项目演示了无人机集群硬件在环打击废旧工厂内的目标，[演示视频](https://hexo-blog-bs.oss-cn-beijing.aliyuncs.com/Rflysim-MAVx8-20210730.mp4)。
+
+## 快速上手
+
+本项目的架构如下，局域网内有多台运行Rflysim的主机，PX4飞控和其连接组成硬件在环仿真。板载计算单元为NX/NUC，运行Linux。控制程序基于ROS，通过串口和飞控通信并控制无人机完成任务。
+
+![分布式Rflysim.jpg](http://ww1.sinaimg.cn/large/008eYjoEgy1gsxt0jeodej60r10g0wg102.jpg)
+
+### 下载代码
+
+代码基于ros开发，`_Swarm_Attack`文件夹内的脚本是在Rflysim主机上运行的脚本。
+
+- 在NX/NUC上的操作
+
+```
+mkdir ~/Swarm_ws
+cd ~/Swarm_ws
+git clone https://github.com/BrightSoulXYHY/Swarm_attack.git src
+catkin build
+```
+
+- Rflysim主机上的操作
+
+拷贝`_Swarm_Attack`文件夹至`%PSP_PATH%\RflySimAPIs`
+
+### 运行demo
+
+- Rflysim主机上的操作
+
+一台主机连接三个飞控，双击运行`oldfactory_HITLRunCom.bat`，飞控会重启，等待串口号稳定输入串口号（飞控重启后串口号可能会跳动，以设备管理器的串口号为准）
+
+![HITL启动.jpg](http://ww1.sinaimg.cn/large/008eYjoEgy1gsxto2whlsj60lp0fwtbs02.jpg)
+
+等待Rflysim、CopterSim等程序启动，多台电脑联合仿真步骤同上。
+
+切换至NX/NUC运行一键启动脚本，推荐使用ssh
+
+```
+cd ~/Swarm_ws
+src/run.h
+```
+
 ## 系统结构
 
 - bs_assis
@@ -12,6 +54,12 @@
   /drone_xx/mavros/local_position/velocity_local
   ```
 
+- rflysim_ros_pkg
+
+  rflysim的ros包，提供了从rflysim获取图像和向rflysim发送指令的API
+
+  ![HITL启动.jpg](http://ww1.sinaimg.cn/large/008eYjoEgy1gsxuh0vcqjj60s70hgab202.jpg)
+
 - decision
 
   对于单架飞机而言
@@ -22,98 +70,47 @@
 
   推送出相对于首架飞机的位置`/drone_%s/mavros/local_position/pose_cor`
 
-- rflysim_ros_pkg
-
-  rflysim的ros包，提供了从rflysim获取图像和向rflysim发送指令的API
-
 - visualization
 
   调用rflysim_ros_pkg发送一些控制的指令控制显示管道之类的
 
-- rflysimindoorcontroller_r2018b_n12_v9
+- rflysimindoorcontroller_r2018b_n12_v9/matlab_gen/MatabNode
 
-- matlab_gen
+  上述三个文件夹是从matlab生成的cpp文件，话题大致如下
 
-- MatabNode
-
-  这三个文件夹大概是从matlab生成的cpp文件，MatabNode有弄好的二进制文件，直接运行，暂时不用改
-
-- attack
-
-- perception
-
-  两个预留的包
-
-## 配置
-
-1. 创建工作空间
-``` 
-mkdir ~/Swarm_ws
-cd ~/Swarm_ws
-```
-
-2. 下载本仓库及子模块
-```
-git clone https://github.com/BrightSoulXYHY/Swarm_attack.git src
-```
-
-3. 编译
-```
-cd ~/Swarm_ws
-catkin_make
-```
-
-4. 刷新ROS环境变量
-```
-# USER_NAME替换为自己的用户名，用zsh的是...../setup.zsh
-source /home/USER_NAME/Swarm_ws/devel/setup.bash
-# 或者把这句话加在~/.bashrc（或者~/.zshrc），然后重开一个终端，就不用每次都执行上面这句了
-```
-
-5. 替换RflySim配置文件
-在Windows电脑下，把`rflysim-config`文件夹内容拷到PX4PSP对应路径下。其中`oldfactory_HITL.bat`和`oldfactory_SITL.bat`是硬件在环和软件在环仿真快速启动脚本，`client_ue4_broadcast.py`是加入小球和传图脚本。根据RflySim说明文档，修改其中的IP地址。
+  ![](http://ww1.sinaimg.cn/large/008eYjoEgy1gsxuh0xgj1j61hc0rttd502.jpg)
 
 
+## 其他
+### Rflysim主机相关的说明
 
-
-## 使用
-### Win端
-
-将`_Swarm_Attack`目录下的东西拷贝到Rflysim主机上
+需要在启动脚本`oldfactory_HITLRunCom.bat`中指定无人机总数和起始序号
 
 ```
-_mav_reboot.py					让无人机重启的脚本，pyserial需要在3.5以上
-
-硬件在环的仿真脚本，只是修改了飞机数目啥的
-拷贝到另外的飞机上要修改start_index
-oldfactory_HITL.bat
-oldfactory_HITL_NUCx6.bat
-oldfactory_HITL_NXx2.bat
-
-软件在环的一些脚本
-oldfactory_SITL.bat
-oldfactory_SITL_bs.bat
-SITL_swam_oldfactor.bat
-
-
-Rflysim的库，大部分是通过UDP封包发送，可以自己搞
-PX4MavCtrlV6.py
-RflyVisionAPI.py
-ScreenCapApiV4.py
-
-参考用的脚本
-client_ue4_broadcast.py
-Python38Run.bat
+SET /a START_INDEX=%COMPUTERNAME:~-1%*3-2
+SET /A TOTOAL_COPTER=10
 ```
 
-然后在`_Swarm_Attack_bs`下面主要是自己写的一些脚本
+如果需要使用视觉方面的识别，运行`img_client_multi.py`发送至NX/NUC，需要指定无人机总数和ip列表
 
 ```
-multi_img_client.py				设置窗口然后向不同的硬件发送图片
-multi_img_client_NX.py
-
-基本的API
-RflyVisionAPI2_bs.py
-ScreenCapApiV4_bs.py
+max_mav = 10
+ipList = [
+    f"192.168.111.{i+20+1}" for i in range(max_mav)
+]
 ```
 
+### NX/NUC相关的说明
+
+一键运行脚本需要在`~/Swarm_ws`目录下运行
+
+飞控序号要和NX/NUC的hostname一致，参数来自与hostname
+
+```
+MAVID=`expr ${HOSTNAME:4:2} + 0`
+```
+
+项目依赖的环境
+
+- [ROS](https://www.ros.org/)
+- [Fast-DDS](https://fast-dds.docs.eprosima.com/en/latest/)
