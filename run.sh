@@ -5,6 +5,7 @@
 
 
 MAVID=`expr ${HOSTNAME:4:2} + 0`
+MAVNUM=12
 
 
 echo "rflysimindoorcontroller_r2018b_n12_v9_node ready!"
@@ -19,11 +20,12 @@ sleep 5s
 # roslaunch shape_detection  ellipse_det.launch   & PID5=$!
 # sleep 5s
 
-roslaunch bs_assis bs_dds.launch  mav_id:=${MAVID}  & PID0=$!
+roslaunch bs_assis bs_dds.launch  mav_id:=${MAVID} mav_num:=${MAVNUM} & PID0=$!
 sleep 5s
 
 
-roslaunch decision multi_drone_bs.launch  drone_id:=${MAVID}  & PID1=$!
+# roslaunch decision multi_drone_bs.launch  drone_id:=${MAVID}  & PID1=$!
+roslaunch decision multi_drone_bs.launch  drone_id:=${MAVID}  drone_num:=${MAVNUM} & PID1=$!
 sleep 5s
 
 #roslaunch visualization multi_visual_bs.launch  drone_id:=${MAVID} type:=207 & PID2=$!
