@@ -3,9 +3,9 @@
 //
 // Code generated for Simulink model 'RflysimIndoorController_r2018b_N12_V9'.
 //
-// Model version                  : 1.88
+// Model version                  : 1.87
 // Simulink Coder version         : 9.0 (R2018b) 24-May-2018
-// C/C++ source code generated on : Fri Dec 25 16:18:22 2020
+// C/C++ source code generated on : Tue Oct 12 16:43:55 2021
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -89,7 +89,7 @@ int main(int argc, char **argv)
   RflysimIndoorController_r2018b_N12_V9_initialize();
 
   // Call RTOS Initialization function
-  myRTOSInit(0.05, 0);
+  myRTOSInit(0.02, 0);
 
   // Wait for stop semaphore
   sem_wait(&stopSem);

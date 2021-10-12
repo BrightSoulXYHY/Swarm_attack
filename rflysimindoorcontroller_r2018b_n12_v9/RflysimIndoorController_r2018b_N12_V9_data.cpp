@@ -3,9 +3,9 @@
 //
 // Code generated for Simulink model 'RflysimIndoorController_r2018b_N12_V9'.
 //
-// Model version                  : 1.88
+// Model version                  : 1.87
 // Simulink Coder version         : 9.0 (R2018b) 24-May-2018
-// C/C++ source code generated on : Fri Dec 25 16:18:22 2020
+// C/C++ source code generated on : Tue Oct 12 16:43:55 2021
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -30,7 +30,7 @@ P_RflysimIndoorController_r20_T RflysimIndoorController_r2018_P = {
   // Variable: ra
   //  Referenced by: '<Root>/Constant10'
 
-  0.8,
+  0.6,
 
   // Variable: rs
   //  Referenced by: '<Root>/Constant9'
@@ -2544,504 +2544,6 @@ P_RflysimIndoorController_r20_T RflysimIndoorController_r2018_P = {
 
   // Computed Parameter: Memory3_InitialCondition
   //  Referenced by: '<Root>/Memory3'
-
-  {
-    {
-      0U                               // Data
-    },                                 // Pipetype
-
-    {
-      {
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Middle
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Left
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Right
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Bottom
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        }                              // Up
-      }, {
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Middle
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Left
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Right
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Bottom
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        }                              // Up
-      }, {
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Middle
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Left
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Right
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Bottom
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        }                              // Up
-      }, {
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Middle
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Left
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Right
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Bottom
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        }                              // Up
-      }, {
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Middle
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Left
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Right
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Bottom
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        }                              // Up
-      }, {
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Middle
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Left
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Right
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Bottom
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        }                              // Up
-      }, {
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Middle
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Left
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Right
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Bottom
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        }                              // Up
-      }, {
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Middle
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Left
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Right
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Bottom
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        }                              // Up
-      }, {
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Middle
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Left
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Right
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Bottom
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        }                              // Up
-      }, {
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Middle
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Left
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Right
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Bottom
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        }                              // Up
-      }, {
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Middle
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Left
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Right
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Bottom
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        }                              // Up
-      }, {
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Middle
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Left
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Right
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Bottom
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        }                              // Up
-      }, {
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Middle
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Left
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Right
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Bottom
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        }                              // Up
-      }, {
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Middle
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Left
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Right
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Bottom
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        }                              // Up
-      }, {
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Middle
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Left
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Right
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Bottom
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        }                              // Up
-      }, {
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Middle
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Left
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Right
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        },                             // Bottom
-
-        {
-          0.0F,                        // X
-          0.0F,                        // Y
-          0.0F                         // Z
-        }                              // Up
-      } }
-    ,                                  // Units
-
-    {
-      0U,                              // CurrentLength
-      0U                               // ReceivedLength
-    }                                  // Units_SL_Info
-  },
-
-  // Computed Parameter: Memory10_InitialCondition
-  //  Referenced by: '<Root>/Memory10'
 
   {
     {
@@ -17980,6 +17482,504 @@ P_RflysimIndoorController_r20_T RflysimIndoorController_r2018_P = {
     }                                  // Units_SL_Info
   },
 
+  // Computed Parameter: Memory10_InitialCondition
+  //  Referenced by: '<Root>/Memory10'
+
+  {
+    {
+      0U                               // Data
+    },                                 // Pipetype
+
+    {
+      {
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Middle
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Left
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Right
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Bottom
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        }                              // Up
+      }, {
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Middle
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Left
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Right
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Bottom
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        }                              // Up
+      }, {
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Middle
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Left
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Right
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Bottom
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        }                              // Up
+      }, {
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Middle
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Left
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Right
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Bottom
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        }                              // Up
+      }, {
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Middle
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Left
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Right
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Bottom
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        }                              // Up
+      }, {
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Middle
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Left
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Right
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Bottom
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        }                              // Up
+      }, {
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Middle
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Left
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Right
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Bottom
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        }                              // Up
+      }, {
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Middle
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Left
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Right
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Bottom
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        }                              // Up
+      }, {
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Middle
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Left
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Right
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Bottom
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        }                              // Up
+      }, {
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Middle
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Left
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Right
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Bottom
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        }                              // Up
+      }, {
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Middle
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Left
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Right
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Bottom
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        }                              // Up
+      }, {
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Middle
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Left
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Right
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Bottom
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        }                              // Up
+      }, {
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Middle
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Left
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Right
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Bottom
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        }                              // Up
+      }, {
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Middle
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Left
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Right
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Bottom
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        }                              // Up
+      }, {
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Middle
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Left
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Right
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Bottom
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        }                              // Up
+      }, {
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Middle
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Left
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Right
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        },                             // Bottom
+
+        {
+          0.0F,                        // X
+          0.0F,                        // Y
+          0.0F                         // Z
+        }                              // Up
+      } }
+    ,                                  // Units
+
+    {
+      0U,                              // CurrentLength
+      0U                               // ReceivedLength
+    }                                  // Units_SL_Info
+  },
+
   // Computed Parameter: Out1_Y0_eq
   //  Referenced by: '<S80>/Out1'
 
@@ -20914,7 +20914,7 @@ P_RflysimIndoorController_r20_T RflysimIndoorController_r2018_P = {
   // Expression: SampleTime
   //  Referenced by: '<Root>/Simulation Pace'
 
-  0.05
+  0.02
 };
 
 //

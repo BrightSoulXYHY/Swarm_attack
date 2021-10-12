@@ -3,9 +3,9 @@
 //
 // Code generated for Simulink model 'RflysimIndoorController_r2018b_N12_V9'.
 //
-// Model version                  : 1.88
+// Model version                  : 1.87
 // Simulink Coder version         : 9.0 (R2018b) 24-May-2018
-// C/C++ source code generated on : Fri Dec 25 16:18:22 2020
+// C/C++ source code generated on : Tue Oct 12 16:43:55 2021
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -84,6 +84,23 @@ typedef struct {
   // IsVarLen=1:VarLenCategory=length:VarLenElem=Units
   SL_Bus_ROSVariableLengthArrayInfo Units_SL_Info;
 } Bus_type;
+
+#endif
+
+#ifndef DEFINED_TYPEDEF_FOR_SL_Bus_RflysimIndoorController_r_Pipeline_6g4ty9_
+#define DEFINED_TYPEDEF_FOR_SL_Bus_RflysimIndoorController_r_Pipeline_6g4ty9_
+
+// MsgType=swarm_msgs/Pipeline
+typedef struct {
+  // MsgType=std_msgs/UInt32
+  SL_Bus_RflysimIndoorController_r_UInt32_3ehxa5 Pipetype;
+
+  // MsgType=swarm_msgs/Pipeunit:IsVarLen=1:VarLenCategory=data:VarLenElem=Units_SL_Info:TruncateAction=warn 
+  SL_Bus_RflysimIndoorController_r_Pipeunit_6gaofl Units[16];
+
+  // IsVarLen=1:VarLenCategory=length:VarLenElem=Units
+  SL_Bus_ROSVariableLengthArrayInfo Units_SL_Info;
+} SL_Bus_RflysimIndoorController_r_Pipeline_6g4ty9;
 
 #endif
 
@@ -218,23 +235,6 @@ typedef struct {
   // Int64Type=uint64
   real_T Data;
 } SL_Bus_RflysimIndoorController_r_UInt64_3ehx7i;
-
-#endif
-
-#ifndef DEFINED_TYPEDEF_FOR_SL_Bus_RflysimIndoorController_r_Pipeline_6g4ty9_
-#define DEFINED_TYPEDEF_FOR_SL_Bus_RflysimIndoorController_r_Pipeline_6g4ty9_
-
-// MsgType=swarm_msgs/Pipeline
-typedef struct {
-  // MsgType=std_msgs/UInt32
-  SL_Bus_RflysimIndoorController_r_UInt32_3ehxa5 Pipetype;
-
-  // MsgType=swarm_msgs/Pipeunit:IsVarLen=1:VarLenCategory=data:VarLenElem=Units_SL_Info:TruncateAction=warn 
-  SL_Bus_RflysimIndoorController_r_Pipeunit_6gaofl Units[16];
-
-  // IsVarLen=1:VarLenCategory=length:VarLenElem=Units
-  SL_Bus_ROSVariableLengthArrayInfo Units_SL_Info;
-} SL_Bus_RflysimIndoorController_r_Pipeline_6g4ty9;
 
 #endif
 

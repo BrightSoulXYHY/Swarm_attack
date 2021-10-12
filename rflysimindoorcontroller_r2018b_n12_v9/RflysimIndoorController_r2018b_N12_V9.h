@@ -3,9 +3,9 @@
 //
 // Code generated for Simulink model 'RflysimIndoorController_r2018b_N12_V9'.
 //
-// Model version                  : 1.88
+// Model version                  : 1.87
 // Simulink Coder version         : 9.0 (R2018b) 24-May-2018
-// C/C++ source code generated on : Fri Dec 25 16:18:22 2020
+// C/C++ source code generated on : Tue Oct 12 16:43:55 2021
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -63,9 +63,8 @@ typedef struct {
   Bus_type msg_new_m2;                 // '<Root>/MATLAB Function12'
   Bus_type msg_new_pf;                 // '<Root>/MATLAB Function14'
   Bus_type msg_new_m;                  // '<Root>/MATLAB Function13'
-  Bus_type msg_new;                    // '<Root>/MATLAB Function9'
-  Bus_type msg_new_p;                  // '<Root>/MATLAB Function15'
-  Bus_type msg_new_b;                  // '<Root>/MATLAB Function11'
+  Bus_type msg_new_p;                  // '<Root>/MATLAB Function9'
+  Bus_type msg_new_pg;                 // '<Root>/MATLAB Function15'
   Bus_type msg_new_i;                  // '<Root>/MATLAB Function5'
   Bus_type msg_new_o;                  // '<Root>/MATLAB Function7'
   Bus_type msg_new_f;                  // '<Root>/MATLAB Function6'
@@ -202,12 +201,12 @@ typedef struct {
   Bus_type Memory1_PreviousInput;      // '<Root>/Memory1'
   Bus_type Memory2_PreviousInput;      // '<Root>/Memory2'
   Bus_type Memory3_PreviousInput;      // '<Root>/Memory3'
-  Bus_type Memory10_PreviousInput;     // '<Root>/Memory10'
   Bus_type Memory11_PreviousInput;     // '<Root>/Memory11'
   Bus_type Memory12_PreviousInput;     // '<Root>/Memory12'
   Bus_type Memory7_PreviousInput;      // '<Root>/Memory7'
   Bus_type Memory8_PreviousInput;      // '<Root>/Memory8'
   Bus_type Memory9_PreviousInput;      // '<Root>/Memory9'
+  SL_Bus_RflysimIndoorController_r_Pipeline_6g4ty9 Memory10_PreviousInput;// '<Root>/Memory10' 
   robotics_slros_internal_block_T obj; // '<S29>/SourceBlock'
   robotics_slros_internal_block_T obj_p;// '<S28>/SourceBlock'
   robotics_slros_internal_block_T obj_k;// '<S27>/SourceBlock'
@@ -323,9 +322,6 @@ struct P_RflysimIndoorController_r20_T_ {
   Bus_type Memory3_InitialCondition;   // Computed Parameter: Memory3_InitialCondition
                                        //  Referenced by: '<Root>/Memory3'
 
-  Bus_type Memory10_InitialCondition;  // Computed Parameter: Memory10_InitialCondition
-                                       //  Referenced by: '<Root>/Memory10'
-
   Bus_type Memory11_InitialCondition;  // Computed Parameter: Memory11_InitialCondition
                                        //  Referenced by: '<Root>/Memory11'
 
@@ -412,6 +408,9 @@ struct P_RflysimIndoorController_r20_T_ {
 
   SL_Bus_RflysimIndoorController_r_Pipeline_6g4ty9 Constant_Value_e;// Computed Parameter: Constant_Value_e
                                                                     //  Referenced by: '<S29>/Constant'
+
+  SL_Bus_RflysimIndoorController_r_Pipeline_6g4ty9 Memory10_InitialCondition;// Computed Parameter: Memory10_InitialCondition
+                                                                      //  Referenced by: '<Root>/Memory10'
 
   SL_Bus_RflysimIndoorController_r_PoseStamped_lkfn12 Out1_Y0_eq;// Computed Parameter: Out1_Y0_eq
                                                                  //  Referenced by: '<S80>/Out1'

@@ -3,9 +3,9 @@
 //
 // Code generated for Simulink model 'RflysimIndoorController_r2018b_N12_V9'.
 //
-// Model version                  : 1.88
+// Model version                  : 1.87
 // Simulink Coder version         : 9.0 (R2018b) 24-May-2018
-// C/C++ source code generated on : Fri Dec 25 16:18:22 2020
+// C/C++ source code generated on : Tue Oct 12 16:43:55 2021
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -50,7 +50,6 @@ static void RflysimIndoo_matlabCodegenHa_i1(robotics_slros_internal_blo_j_T *obj
 //
 // Output and update for atomic system:
 //    '<Root>/MATLAB Function10'
-//    '<Root>/MATLAB Function11'
 //    '<Root>/MATLAB Function12'
 //    '<Root>/MATLAB Function13'
 //    '<Root>/MATLAB Function14'
@@ -59,7 +58,8 @@ static void RflysimIndoo_matlabCodegenHa_i1(robotics_slros_internal_blo_j_T *obj
 //    '<Root>/MATLAB Function5'
 //    '<Root>/MATLAB Function6'
 //    '<Root>/MATLAB Function7'
-//    ...
+//    '<Root>/MATLAB Function8'
+//    '<Root>/MATLAB Function9'
 //
 void RflysimIndoorC_MATLABFunction10(const
   SL_Bus_RflysimIndoorController_r_Pipeline_6g4ty9 *rtu_msg, const Bus_type
@@ -571,7 +571,7 @@ static void RflysimIndoorCont_Encirclement4(const real_T p_leader[1000], const
     RflysimIndoorController_r2018_B.V3[1] =
       -RflysimIndoorController_r2018_B.b_tmp[1] *
       RflysimIndoorController_r2018_B.rtksii;
-    for (j = 0; j < 3; j++) {
+    for (j = 0; j < 12; j++) {
       if (1.0 + (real_T)j != i) {
         RflysimIndoorController_r2018_B.rtksii = 1.0 / gain;
         RflysimIndoorController_r2018_B.ep[0] = (Vcur[i_tmp - 1] - Vcur[j]) *
@@ -581,7 +581,7 @@ static void RflysimIndoorCont_Encirclement4(const real_T p_leader[1000], const
           + 12]);
         RflysimIndoorController_r2018_B.rtksii = RflysimIndoorController_r2_norm
           (RflysimIndoorController_r2018_B.ep);
-        RflysimIndoorController_r2018_B.disti = 20.0 * vmax *
+        RflysimIndoorController_r2018_B.disti = 3.0 * vmax *
           RflysimIndoorControll_dmysigma2(RflysimIndoorController_r2018_B.rtksii,
           2.0 * rs, rs + ra);
         RflysimIndoorController_r2018_B.dis_leader_min +=
@@ -1056,9 +1056,12 @@ void RflysimIndoorController_r2018b_N12_V9_step(void)
   // End of Outputs for SubSystem: '<Root>/Subscribe9'
 
   // MATLAB Function: '<Root>/MATLAB Function11'
-  RflysimIndoorC_MATLABFunction10(&RflysimIndoorController_r2018_B.In1,
-    &RflysimIndoorController_r201_DW.Memory10_PreviousInput,
-    &RflysimIndoorController_r2018_B.msg_new_b);
+  if (RflysimIndoorController_r2018_B.In1.Units_SL_Info.CurrentLength != 0U) {
+    RflysimIndoorController_r201_DW.Memory10_PreviousInput =
+      RflysimIndoorController_r2018_B.In1;
+  }
+
+  // End of MATLAB Function: '<Root>/MATLAB Function11'
 
   // Outputs for Atomic SubSystem: '<Root>/Subscribe12'
   // MATLABSystem: '<S21>/SourceBlock' incorporates:
@@ -1083,7 +1086,7 @@ void RflysimIndoorController_r2018b_N12_V9_step(void)
   // MATLAB Function: '<Root>/MATLAB Function15'
   RflysimIndoorC_MATLABFunction10(&RflysimIndoorController_r2018_B.In1_p,
     &RflysimIndoorController_r201_DW.Memory11_PreviousInput,
-    &RflysimIndoorController_r2018_B.msg_new_p);
+    &RflysimIndoorController_r2018_B.msg_new_pg);
 
   // Outputs for Atomic SubSystem: '<Root>/Subscribe6'
   // MATLABSystem: '<S26>/SourceBlock' incorporates:
@@ -1108,7 +1111,7 @@ void RflysimIndoorController_r2018b_N12_V9_step(void)
   // MATLAB Function: '<Root>/MATLAB Function9'
   RflysimIndoorC_MATLABFunction10(&RflysimIndoorController_r2018_B.In1_a4,
     &RflysimIndoorController_r201_DW.Memory12_PreviousInput,
-    &RflysimIndoorController_r2018_B.msg_new);
+    &RflysimIndoorController_r2018_B.msg_new_p);
 
   // Outputs for Atomic SubSystem: '<Root>/Subscribe8'
   // MATLABSystem: '<S28>/SourceBlock' incorporates:
@@ -1949,26 +1952,27 @@ void RflysimIndoorController_r2018b_N12_V9_step(void)
 
      case 7:
       RflysimIndoorController_r2018_B.tunnel_msg_Pipetype_Data =
-        RflysimIndoorController_r2018_B.msg_new_b.Pipetype.Data;
-      tunnel_msg_Units = &RflysimIndoorController_r2018_B.msg_new_b.Units[0];
+        RflysimIndoorController_r201_DW.Memory10_PreviousInput.Pipetype.Data;
+      tunnel_msg_Units =
+        &RflysimIndoorController_r201_DW.Memory10_PreviousInput.Units[0];
       RflysimIndoorController_r2018_B.tunnel_msg_Units_SL_Info_Curren =
-        RflysimIndoorController_r2018_B.msg_new_b.Units_SL_Info.CurrentLength;
+        RflysimIndoorController_r201_DW.Memory10_PreviousInput.Units_SL_Info.CurrentLength;
       break;
 
      case 8:
+      RflysimIndoorController_r2018_B.tunnel_msg_Pipetype_Data =
+        RflysimIndoorController_r2018_B.msg_new_pg.Pipetype.Data;
+      tunnel_msg_Units = &RflysimIndoorController_r2018_B.msg_new_pg.Units[0];
+      RflysimIndoorController_r2018_B.tunnel_msg_Units_SL_Info_Curren =
+        RflysimIndoorController_r2018_B.msg_new_pg.Units_SL_Info.CurrentLength;
+      break;
+
+     case 9:
       RflysimIndoorController_r2018_B.tunnel_msg_Pipetype_Data =
         RflysimIndoorController_r2018_B.msg_new_p.Pipetype.Data;
       tunnel_msg_Units = &RflysimIndoorController_r2018_B.msg_new_p.Units[0];
       RflysimIndoorController_r2018_B.tunnel_msg_Units_SL_Info_Curren =
         RflysimIndoorController_r2018_B.msg_new_p.Units_SL_Info.CurrentLength;
-      break;
-
-     case 9:
-      RflysimIndoorController_r2018_B.tunnel_msg_Pipetype_Data =
-        RflysimIndoorController_r2018_B.msg_new.Pipetype.Data;
-      tunnel_msg_Units = &RflysimIndoorController_r2018_B.msg_new.Units[0];
-      RflysimIndoorController_r2018_B.tunnel_msg_Units_SL_Info_Curren =
-        RflysimIndoorController_r2018_B.msg_new.Units_SL_Info.CurrentLength;
       break;
 
      case 10:
@@ -2784,17 +2788,13 @@ void RflysimIndoorController_r2018b_N12_V9_step(void)
   RflysimIndoorController_r201_DW.Memory3_PreviousInput =
     RflysimIndoorController_r2018_B.msg_new_i;
 
-  // Update for Memory: '<Root>/Memory10'
-  RflysimIndoorController_r201_DW.Memory10_PreviousInput =
-    RflysimIndoorController_r2018_B.msg_new_b;
-
   // Update for Memory: '<Root>/Memory11'
   RflysimIndoorController_r201_DW.Memory11_PreviousInput =
-    RflysimIndoorController_r2018_B.msg_new_p;
+    RflysimIndoorController_r2018_B.msg_new_pg;
 
   // Update for Memory: '<Root>/Memory12'
   RflysimIndoorController_r201_DW.Memory12_PreviousInput =
-    RflysimIndoorController_r2018_B.msg_new;
+    RflysimIndoorController_r2018_B.msg_new_p;
 
   // Update for Memory: '<Root>/Memory7'
   RflysimIndoorController_r201_DW.Memory7_PreviousInput =
