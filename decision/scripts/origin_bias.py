@@ -40,8 +40,8 @@ if __name__ == '__main__':
     rospy.init_node('pose_cor', anonymous=True)
     param_id = rospy.get_param("~drone_id")
     param_num = rospy.get_param("~drone_num")
-    local_pos_pub = rospy.Publisher('/drone_%s/mavros/local_position/pose_cor'%(param_id), PoseStamped, queue_size=10)
-    local_pos_sub = rospy.Subscriber('/drone_%s/mavros/local_position/pose'%(param_id), PoseStamped, local_pos_cb)
+    local_pos_pub = rospy.Publisher('/mavros/local_position/pose_cor', PoseStamped, queue_size=10)
+    local_pos_sub = rospy.Subscriber('/mavros/local_position/pose', PoseStamped, local_pos_cb)
     rospy.spin()
     
     # while True:

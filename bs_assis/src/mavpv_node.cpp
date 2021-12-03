@@ -118,14 +118,14 @@ int main(int argc, char **argv)
         std::stringstream fmt;
         fmt << "/drone_"<<(i+1);
 
-        posPubs.push_back(nh.advertise<geometry_msgs::PoseStamped>(fmt.str()+"/mavros/local_position/pose", 10));
+        posPubs.push_back(nh.advertise<geometry_msgs::PoseStamped>(fmt.str()+"/mavros/local_position/pose_cor", 10));
         velPubs.push_back(nh.advertise<geometry_msgs::TwistStamped>(fmt.str()+"/mavros/local_position/velocity_local", 10));
     }
     
 
     ros::Subscriber pose_sub = nh.subscribe<geometry_msgs::PoseStamped>
                 (
-                    "/mavros/local_position/pose", 10,
+                    "/mavros/local_position/pose_cor", 10,
                     boost::bind(&poseCallback, _1, mav_id)
                  );
     ros::Subscriber vel_sub = nh.subscribe<geometry_msgs::TwistStamped>
