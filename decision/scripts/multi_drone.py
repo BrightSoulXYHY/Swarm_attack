@@ -191,8 +191,8 @@ class Decision:
                 cnt_pipe += 1
                 print("{} cnt_pipe is {}".format(self.drone_name, cnt_pipe))
                 drone_state = 30
-                drone_state_pub.publish(UInt64(drone_state))
                 for _ in range(10):
+                    drone_state_pub.publish(UInt64(30))
                     self.pipe_pub.publish(a)
                     rospy.sleep(0.1)
             if cnt_pipe >= len_pipe:

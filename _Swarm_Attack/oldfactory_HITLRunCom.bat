@@ -179,7 +179,7 @@ start %PSP_PATH%\Python38\python.exe _add_obj.py
 
 choice /t 5 /d y /n >nul
 @REM start %PSP_PATH%\Python38\python.exe img_client_multi.py %START_INDEX%
-start %PSP_PATH%\Python38\python.exe img_save2mp4.py %START_INDEX%
+@REM start %PSP_PATH%\Python38\python.exe img_save2mp4.py %START_INDEX%
 
 
 pause

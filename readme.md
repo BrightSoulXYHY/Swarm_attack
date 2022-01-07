@@ -6,6 +6,8 @@
 
 本项目的架构如下，局域网内有多台运行Rflysim的主机，PX4飞控和其连接组成硬件在环仿真。板载计算单元为NX/NUC，运行Linux。控制程序基于ROS，通过串口和飞控通信并控制无人机完成任务。
 
+**有关Rflysim的接口参见Rflysim的[文档](https://rflysim.com/docs/#/)和Rflysim安装目录下的RflySimAPIs文件夹内的例程。**
+
 ![分布式Rflysim.jpg](http://ww1.sinaimg.cn/large/008eYjoEgy1gsxt0jeodej60r10g0wg102.jpg)
 
 ### 下载代码
@@ -26,6 +28,8 @@ catkin build
 拷贝`_Swarm_Attack`文件夹至`%PSP_PATH%\RflySimAPIs`
 
 ### 运行demo
+
+详细步骤参见`测试用例的使用手册.docx`
 
 - Rflysim主机上的操作
 
@@ -110,7 +114,11 @@ ipList = [
 MAVID=`expr ${HOSTNAME:4:2} + 0`
 ```
 
-项目依赖的环境
+### 飞控和NUC设置序号的方法
+
+参见`飞控的ID设置.docx`和`NX的ID设置.doc`
+
+## 项目依赖的环境
 
 - [ROS](https://www.ros.org/)
 - [Fast-DDS](https://fast-dds.docs.eprosima.com/en/latest/)
