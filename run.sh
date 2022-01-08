@@ -23,12 +23,8 @@ sleep 5s
 roslaunch bs_assis bs_dds.launch  mav_id:=${MAVID} mav_num:=${MAVNUM} & PID0=$!
 sleep 5s
 
-
-# roslaunch decision multi_drone_bs.launch  drone_id:=${MAVID}  & PID1=$!
 roslaunch decision multi_drone_bs.launch  drone_id:=${MAVID}  drone_num:=${MAVNUM} & PID1=$!
 sleep 5s
-
-#roslaunch visualization multi_visual_bs.launch  drone_id:=${MAVID} type:=207 & PID2=$!
 
 wait
 kill -9 PID0 PID1 PID2 PID3 PID4 PID5

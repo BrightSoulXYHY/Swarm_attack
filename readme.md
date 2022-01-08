@@ -60,7 +60,7 @@ src/run.h
 
 - rflysim_ros_pkg
 
-  rflysim的ros包，提供了从rflysim获取图像和向rflysim发送指令的API
+  rflysim的ros包，提供了从rflysim获取图像和向rflysim发送指令的API。完整版在[这里](https://github.com/KennethYangle/RflySim_ws)，可以不用管内部原理，参考[readme](https://github.com/KennethYangle/RflySim_ws/blob/main/readme.md)和[例程](https://github.com/KennethYangle/RflySim_ws/tree/main/rflysim_ros_pkg/examples)使用即可。
 
   ![HITL启动.jpg](http://ww1.sinaimg.cn/large/008eYjoEgy1gsxuh0vcqjj60s70hgab202.jpg)
 
@@ -73,6 +73,9 @@ src/run.h
   通过`origin_bias.py`订阅`/drone_xx/mavros/local_position/pose`
 
   推送出相对于首架飞机的位置`/drone_%s/mavros/local_position/pose_cor`
+  
+  状态机切换如下
+  ![](state.jpg)
 
 - visualization
 
@@ -121,4 +124,5 @@ MAVID=`expr ${HOSTNAME:4:2} + 0`
 ## 项目依赖的环境
 
 - [ROS](https://www.ros.org/)
+- [mavros](http://wiki.ros.org/mavros)
 - [Fast-DDS](https://fast-dds.docs.eprosima.com/en/latest/)

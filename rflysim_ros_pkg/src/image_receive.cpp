@@ -19,6 +19,12 @@
 using namespace std;
 using namespace cv;
 
+/**
+本程序用于接收UE4传递过来的图像，并转发至ROS网络。
+订阅/camera/$(arg camera_id)获取图像，camera_id在launch中指定。
+使用参考https://github.com/KennethYangle/RflySim_ws/tree/main/rflysim_ros_pkg/examples
+*/
+
 int PORT=9999;
 
 int main(int argc, char* argv[])

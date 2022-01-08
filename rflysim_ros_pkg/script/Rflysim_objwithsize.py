@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 #coding=utf-8
 
+# 本程序用于在场景里创建物体，提供类似于gazebo的ROS接口便于使用。外部程序调用时，往ue4_ros/obj话题发送消息
+
 import socket
 import cv2
 import numpy as np
@@ -22,6 +24,7 @@ def udp_socket():
     return socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 
+# ROS消息转UDP，通常不会直接调用这个消息
 def sendUE4Pos(copterID, vehicleType, MotorRPMSMean, PosE, AngEuler, udp, windowID=-1):
     if windowID < 0:
         for i in range(5):
@@ -37,6 +40,7 @@ def sendUE4Pos(copterID, vehicleType, MotorRPMSMean, PosE, AngEuler, udp, window
         # socket.sendto(buf, ('192.168.199.140', 20010+windowID))
         socket.sendto(buf, (udp, 20010+windowID))
 
+# ROS消息转UDP，通常不会直接调用这个消息
 def sendUE4PosScale(copterID, vehicleType, MotorRPMSMean, PosE, AngEuler, Scale,udp, windowID=-1):
     if windowID < 0:
         for i in range(5):
@@ -58,7 +62,7 @@ obj_size = [0, 0, 0]
 obj_type = 0
 obj_id = 0
 '''
-这里进行了结算，mavros到UE4坐标系
+这里进行了解算，mavros到UE4坐标系
 mavros          ue4
 pos_x          pos_y
 pos_y          pos_x
@@ -67,6 +71,7 @@ pos_z          - pos_z
 sendUE4Pos(CopterID, VehicleType, RotorSpeed, PosM, AngEulerRad, windowsID = 0)  # -8.086
 '''
 
+# 订阅创建物体的消息，打包发送到UE4
 def obj_cb(msg):
     degree_to_rate = math.pi/180
     global obj_pos, obj_angle,obj_type, obj_id, obj_size
@@ -86,6 +91,6 @@ def obj_cb(msg):
 
 if __name__ == '__main__':
     rospy.init_node('obj_control', anonymous=True)
-    rospy.Subscriber("ue4_ros/obj", Obj, obj_cb)
+    rospy.Subscriber("ue4_ros/obj", Obj, obj_cb)        # 外部程序调用时，往ue4_ros/obj话题发送消息
     rospy.spin()
 
