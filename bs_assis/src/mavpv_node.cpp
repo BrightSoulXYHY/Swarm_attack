@@ -1,18 +1,9 @@
-// #include <ros/ros.h>
-// #include <geometry_msgs/PoseStamped.h>
-// #include <geometry_msgs/TwistStamped.h>
-// #include <mavros_msgs/CommandBool.h>
-// #include <mavros_msgs/SetMode.h>
-// #include <mavros_msgs/State.h>
-// #include <mavros_msgs/Mavlink.h>
-
-
-// #include <vector>
-// #include <thread>
-// #include <sstream>
-
 #include "BS_InfoPS.h" 
 
+/*
+本文件是dds接收和传输节点主程序
+MavData*文件是框架生成的文件
+*/
 
 struct mav_state 
 {
@@ -34,7 +25,7 @@ void velCallback(const geometry_msgs::TwistStamped::ConstPtr& msg, int mav_id)
 void poseCallback(const geometry_msgs::PoseStamped::ConstPtr& msg, int mav_id)
 {
     mavVec[mav_id].p = *msg;
-    // std::cout <<" id: " << mavState.id <<" pos: " << mavState.p.pose.position.z<<std::endl;
+    
 }
 
 void constructMavData(MavData& sendData,int mav_id)

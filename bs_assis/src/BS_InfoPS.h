@@ -1,4 +1,9 @@
 #pragma once
+/*
+本文件是dds接收和传输类的头文件定义
+*/
+
+
 #include "MavDataPubSubTypes.h"
 
 #include <fastdds/dds/domain/DomainParticipantFactory.hpp>

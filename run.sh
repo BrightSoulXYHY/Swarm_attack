@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# 启动脚本
 
 . devel/setup.bash
 
@@ -14,6 +14,7 @@ echo "this MAV id :${MAVID}"
 roslaunch rflysim_ros_pkg cameras.launch   & PID3=$!
 sleep 5s
 
+# 目标检测和椭圆检测,取消注释即可启用
 # roslaunch shape_detection  obj_det.launch   & PID4=$!
 # sleep 5s
 

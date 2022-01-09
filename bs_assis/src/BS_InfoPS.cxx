@@ -1,5 +1,10 @@
 #include "BS_InfoPS.h" 
 
+/*
+本文件是dds接收和传输类的实现
+*/
+
+
 
 //!Initialize the subscriber
 bool InfoPS::init()
@@ -45,28 +50,14 @@ void InfoPS::run(uint32_t samples)
         if (publish())
         {
             samples_sent++;
-            // std::cout << "Message: " << hello_.message() << " with index: " << hello_.index() << " SENT" << std::endl;
+            
         }
         std::this_thread::sleep_for(std::chrono::milliseconds(25));
     }
 
 }
 
-// 推送当前ID的mav数据
-// void InfoPS::run()
-// {
-//     while (true)
-//     {
-        // std::cout<< "pub" <<std::endl;
-        // std::cout<< "mavVec: "<<mavVec[0].p.pose.position.z <<std::endl;
-        // if (publish())
-        // {
-            
-            // std::cout << "Message: " << hello_.message() << " with index: " << hello_.index() << " SENT" << std::endl;
-        // }
-//         std::this_thread::sleep_for(std::chrono::milliseconds(25));
-//     }
-// }
+
 
 void InfoPS::runSub()
 {
@@ -80,14 +71,6 @@ void InfoPS::runSub()
 
 bool InfoPS::publish()
 {
-    // DataWriter和DataReader有匹配上则发送
-    // listener_.matched_ 是匹配上的数量
-    // if (dwListener_.matched_ > 0)
-    // {
-    //     hello_.index(hello_.index() + 1);
-    //     writer_->write(&hello_);
-    //     return true;
-    // }
     return false;
 }
 
